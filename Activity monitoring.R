@@ -7,7 +7,21 @@ library(knitr)
 library(dplyr)
 library(ggplot2)
 
-activity<-read.csv("F:/Edu_Universidad/4_Online/1_Coursera/Econometrics/JHopkins_Datascience/5_Reproducible_Research/RR_Week2/CourseProject_RR_W2/activity.csv", header = TRUE, sep = ",")
+###################################################
+if(!file.exists("getdata-projectfiles-UCI HAR Dataset.zip")) {
+        temp <- tempfile()
+        download.file("http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip",temp)
+        unzip(temp)
+        unlink(temp)
+}
+
+activity <- read.csv("activity.csv")
+
+################################################
+
+#From my computer
+#data <- read.csv("activity.csv")
+#activity<-read.csv("F:/Edu_Universidad/4_Online/1_Coursera/Econometrics/JHopkins_Datascience/5_Reproducible_Research/RR_Week2/CourseProject_RR_W2/activity.csv", header = TRUE, sep = ",")
 
 
 #Transforming the variable date in date
